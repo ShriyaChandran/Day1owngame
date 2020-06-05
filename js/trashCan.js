@@ -1,6 +1,5 @@
 class Trashcan{
     constructor(x,y){
-        // console.log("insidethecontructor");
         this.trashcanWidth = 200;
         this.trashcanHeight = 100;
         this.wallThickness = 20;
@@ -10,13 +9,10 @@ class Trashcan{
         Matter.Body.setAngle(this.leftbody,this.angle);
         this.rightbody = Bodies.rectangle(x+this.trashcanWidth/2,y-this.trashcanHeight/2,this.wallThickness,this.trashcanHeight,{'isStatic':true});
         Matter.Body.setAngle(this.rightbody,this.angle);
-        World.add(world, this.bottombody);
-        World.add(world,this.leftbody);
-        World.add(world, this.rightbody);
+        World.add(this.bottombody,this.leftbody,this.rightbody,world);
         
     }
     display(){
-        // console.log("insidedisplay");
         var posBottom=this.bottombody.position;
         var posLeft=this.leftbody.position; 
         var posRight=this.rightbody.position;
@@ -24,8 +20,8 @@ class Trashcan{
         translate(posLeft.x, posLeft.y);
         rectMode(CENTER)
         angleMode(RADIANS)
-        fill(90,129,158);
-        stroke(255);
+        fill(255)
+        stroke(255)
         rotate(this.angle);
         rect(0,0,this.wallThickness,this.trashcanHeight);
         pop();
@@ -33,7 +29,7 @@ class Trashcan{
         translate(posRight.x, posRight.y);
         rectMode(CENTER)
         angleMode(RADIANS)
-        fill(90,129,158)
+        fill(255)
         stroke(255)
         rotate(this.angle);
         rect(0,0,this.wallThickness,this.trashcanHeight);
@@ -42,7 +38,7 @@ class Trashcan{
         translate(posBottom.x, posBottom.y);
         rectMode(CENTER)
         angleMode(RADIANS)
-        fill(90,129,158);
+        fill(255)
         stroke(255)
         rect(0,0,this.trashcanWidth,this.wallThickness);
         pop();
