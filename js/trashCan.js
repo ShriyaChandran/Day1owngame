@@ -9,7 +9,9 @@ class Trashcan{
         Matter.Body.setAngle(this.leftbody,this.angle);
         this.rightbody = Bodies.rectangle(x+this.trashcanWidth/2,y-this.trashcanHeight/2,this.wallThickness,this.trashcanHeight,{'isStatic':true});
         Matter.Body.setAngle(this.rightbody,this.angle);
-        World.add(this.bottombody,this.leftbody,this.rightbody,world);
+        World.add(world,this.bottombody)
+        World.add(world,this.leftbody)
+        World.add(world,this.rightbody,);
         
     }
     display(){
